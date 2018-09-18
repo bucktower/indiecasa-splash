@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>IndieCasa</title>
+    <link href="https://fonts.googleapis.com/css?family=Assistant:200,300,800" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <style>
+      html {
+        font-family: 'Assistant', sans-serif;
+        background-color: #212121;
+        color: #ffffff;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 100px;
+        display: inline-block;
+      }
+
+      h2 {
+        font-size: 100px;
+        display: inline-block;
+        font-weight: 300;
+        margin-bottom: 0;
+      }
+
+      p {
+        color: #eaeaea;
+        font-size: 50px;
+        font-weight: 200;
+      }
+
+      h3 {
+        font-weight: 200;
+        display: inline-block;
+        font-size: 40px;
+        margin: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Indie</h1><h2>Casa</h2>
+    <p>Join the hub of independent film</p>
+
+    <div id="timer">
+      <h3 id="days">00</h3>
+      <h3 id="hours">00</h3>
+      <h3 id="min">00</h3>
+      <h3 id="sec">00</h3>
+    </div>
+
+    <script>
+      function countdown() {
+        var currentDate = new Date();
+        var eventDate = new Date(2018, 12, 1);
+        var milliSeconds = eventDate.getTime() - currentDate.getTime();
+        var seconds = parseInt(milliSeconds / 1000);
+        var minutes = parseInt(seconds / 60);
+        var hours = parseInt(minutes / 60);
+        var days = parseInt(hours / 24);
+        seconds -= minutes * 60;
+        minutes -= hours * 60;
+        hours -= days * 24;
+
+        $('#days').text(days);
+        $('#hours').text(hours);
+        $('#min').text(minutes);
+        $('#sec').text(seconds);
+      }
+      countdown();
+      window.setInterval(countdown, 1000);
+    </script>
+  </body>
+</html>
